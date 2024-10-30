@@ -1,6 +1,4 @@
-﻿// App1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
+﻿
 #include <iostream>
 
 using namespace std;
@@ -91,10 +89,18 @@ public:
     void pushOnSelectedPos(int value, int pos)
     {
         this->size++;
-        for (int i = pos; i < this->size; i++)
+        int* newArray = new int[this->size + 1];
+        for (int i = 0; i < pos; i++)
         {
-            this->array[i + 1] = a[i];
+            newArray[i] = this->array[i];
         }
+        newArray[pos] = value;
+        for (int i = pos + 1; i < size; i++)
+        {
+            newArray[i] = this->array[i];
+        }
+        array = newArray;
+        delete[] newArray;
     }
 };
 
@@ -168,6 +174,10 @@ int main()
     cout << "Введите позицию: ";
     cin >> index;
     cout << endl;
+    arrayContainer->pushOnSelectedPos(tmp, index);
+    cout << "Вставка в позицию " << index <<endl;
+    arrayContainer->showData();
+    cout << endl;
 
     int *array1, *array2, n1, n2;
     ArrayContainer arrayContainerIntersec;
@@ -200,18 +210,4 @@ int main()
 
     arrayContainerIntersec = intersecData(*a1, *a2);
     arrayContainerIntersec.showData();
-
-
-    /*cout << endl;
-    cout << "Введите число: ";
-    cin >> tmp;
-    cout << endl;
-    arrayContainer->pushBack(tmp);
-    cout << "Вставка в конец" << endl;
-    arrayContainer->showData();
-    cout << endl;
-    arrayContainer->pushFront(tmp);
-    cout << "Вставка в начало" << endl;
-    arrayContainer->showData();
-    cout << endl;*/
 }
