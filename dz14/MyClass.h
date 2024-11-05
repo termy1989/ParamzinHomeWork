@@ -74,7 +74,7 @@ private:
     std::unique_ptr<PrivateData> m_pPrivateData;
 };
 
-class StoneManV2 : public StoneMan
+class StoneManV2 final: public StoneMan
 {
 public:
     explicit StoneManV2();
