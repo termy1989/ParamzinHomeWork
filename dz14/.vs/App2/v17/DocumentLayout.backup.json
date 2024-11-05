@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\App2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D483122-5E1A-4024-B9A1-438B8F2A69DE}|App2.vcxproj|C:\\Projects\\App2\\App2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1D483122-5E1A-4024-B9A1-438B8F2A69DE}|App2.vcxproj|solutionrelative:App2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App2.cpp",
+              "DocumentMoniker": "C:\\Projects\\App2\\App2.cpp",
+              "RelativeDocumentMoniker": "App2.cpp",
+              "ToolTip": "C:\\Projects\\App2\\App2.cpp",
+              "RelativeToolTip": "App2.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-05T13:14:53.929Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
