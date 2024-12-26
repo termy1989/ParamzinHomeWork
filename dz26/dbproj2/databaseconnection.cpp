@@ -57,7 +57,7 @@ void DatabaseConnection::insertFlight(const Flight flight)
 void DatabaseConnection::deleteAirline(const QString name)
 {
     QSqlQuery query;
-    QString strF = "DELETE FROM Airlines WHERE AirlineName='%1'";;
+    QString strF = "DELETE FROM Airlines WHERE AirlineName='%1';";
     QString str = strF.arg(name);
 
     if (!query.exec(str))
@@ -69,7 +69,7 @@ void DatabaseConnection::deleteAirline(const QString name)
 void DatabaseConnection::deleteFlight(const QString name)
 {
     QSqlQuery query;
-    QString strF = "DELETE FROM Flights WHERE FlightID=%1";;
+    QString strF = "DELETE FROM Flights WHERE FlightID=%1;";
     QString str = strF.arg(name);
 
     if (!query.exec(str))
