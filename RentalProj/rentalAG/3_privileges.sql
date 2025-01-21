@@ -1,1 +1,0 @@
-GRANT ALL PRIVILEGES `ag_rental_base`.* TO 'ag_user_1'@'localhost';

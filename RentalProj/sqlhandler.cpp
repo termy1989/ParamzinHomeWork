@@ -26,7 +26,7 @@ void SqlHandler::sqlConnect()
     if (QSqlDatabase::isDriverAvailable(DRIVER))
     {
         mDB = QSqlDatabase::addDatabase(DRIVER);
-        mDB.setDatabaseName("/home/epadmin/temp/RentalProj/ag_rental_base");
+        mDB.setDatabaseName(QDir::currentPath() + "/ag_rental_base");
 
         // открытие базы данных
         if (mDB.open())

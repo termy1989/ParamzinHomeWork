@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_RentalProj_FILE /home/epadmin/repo/RentalProj/build/Desktop_Qt_6_8_0-Debug/RentalProj)
-set(__QT_DEPLOY_TARGET_RentalProj_TYPE EXECUTABLE)
