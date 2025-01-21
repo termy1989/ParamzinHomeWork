@@ -1,25 +1,25 @@
-#include "groupsdialog.h"
-#include "ui_groupsdialog.h"
+#include "customersdialog.h"
+#include "ui_customersdialog.h"
 
 // конструктор
-GroupsDialog::GroupsDialog(QWidget *parent) :
+CustomersDialog::CustomersDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::GroupsDialog)
+    ui(new Ui::CustomersDialog)
 {
     ui->setupUi(this);
 
-    connect(ui->buttonAdd, SIGNAL(clicked()), this, SLOT(addGroup()));
-    connect(ui->buttonDel, SIGNAL(clicked()), this, SLOT(delGroups()));
+    connect(ui->buttonAdd, SIGNAL(clicked()), this, SLOT(addCustomer()));
+    connect(ui->buttonDel, SIGNAL(clicked()), this, SLOT(delCustomers()));
 }
 
 // деструктор
-GroupsDialog::~GroupsDialog()
+CustomersDialog::~CustomersDialog()
 {
     delete ui;
 }
 
 // открытие диалогового окна
-void GroupsDialog::openDialog()
+void CustomersDialog::openDialog()
 {
     // открытие диалогового окна
     show();
@@ -29,29 +29,30 @@ void GroupsDialog::openDialog()
 }
 
 // обновление таблицы
-void GroupsDialog::refresh(QSqlTableModel *model)
+void CustomersDialog::refresh(QSqlTableModel *model)
 {
     // настройка заголовков модели
-    model->setHeaderData(0, Qt::Horizontal, tr("Наименование категории"));
+    model->setHeaderData(0, Qt::Horizontal, tr("Ф.И.О."));
+    model->setHeaderData(1, Qt::Horizontal, tr("Номер телефона"));
+    model->setHeaderData(2, Qt::Horizontal, tr("Электронная почта"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Примечание"));
 
     // сохранение настроек шрифта таблицы перед обновлением
     QFont font = ui->tableView->font();
     font.setPointSize(10);
     ui->tableView->setFont(font);
 
-    // настройка таблицы
+    // настройка модели
     ui->tableView->setModel(model);
     ui->tableView->setStyleSheet("QHeaderView::section { background-color:lightGray }");
-    ui->tableView->setColumnWidth(0, 275);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeMode::Stretch);
     ui->tableView->horizontalHeader()->setFont(font);
 
-    // строка "ВСЕ ТОВАРЫ" недоступна для редактирования
+    // строка "ВСЕ КЛИЕНТЫ" недоступна для редактирования
     for (int i = 0; i < model->rowCount(); i++)
     {
         QSqlRecord record = ((QSqlTableModel*)ui->tableView->model())->record(i);
-        if (record.value(0).toString() == "не указана"
-            || record.value(0).toString() == "- ВСЕ ТОВАРЫ -")
+        if (record.value(0).toString() == "- ВСЕ КЛИЕНТЫ -")
         {
             ui->tableView->hideRow(i);
         }
@@ -59,13 +60,13 @@ void GroupsDialog::refresh(QSqlTableModel *model)
 }
 
 // добавление элемента
-void GroupsDialog::addGroup()
+void CustomersDialog::addCustomer()
 {
-    emit signalAddGroup();
+    emit signalAddCustomer(false);
 }
 
 // удаление элементов
-void GroupsDialog::delGroups()
+void CustomersDialog::delCustomers()
 {
-    emit signalDelGroups(ui->tableView->selectionModel()->selectedRows(0));
+    emit signalDelCustomers(ui->tableView->selectionModel()->selectedRows(0), false);
 }

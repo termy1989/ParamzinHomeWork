@@ -26,12 +26,11 @@ void SqlHandler::sqlConnect()
     if (QSqlDatabase::isDriverAvailable(DRIVER))
     {
         mDB = QSqlDatabase::addDatabase(DRIVER);
-        mDB.setDatabaseName("ag_rental_base");
+        mDB.setDatabaseName("/home/epadmin/temp/RentalProj/ag_rental_base");
 
         // открытие базы данных
         if (mDB.open())
         {
-
             // отправка сигнала о подключении к базе
             emit signalConnectStatus(true);
 
@@ -50,7 +49,10 @@ void SqlHandler::sqlConnect()
             connect(mSqlModelProducts, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
                     this, SLOT(sqlUpdateProducts()));
         }
-        else emit signalErrorMsg(mDB.lastError().text());
+        else
+        {
+            emit signalErrorMsg("mDB.lastError().text()");
+        }
     }
     else
     {

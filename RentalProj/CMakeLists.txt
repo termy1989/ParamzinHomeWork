@@ -27,6 +27,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         accessory/order.h accessory/order.cpp
         accessory/rentalitem.h accessory/rentalitem.cpp
         groupsdialog.h groupsdialog.cpp groupsdialog.ui
+        customersdialog.cpp customersdialog.h customersdialog.ui orderdialog.cpp orderdialog.h orderdialog.ui rentaldialog.cpp rentaldialog.h rentaldialog.ui
+        productsdialog.cpp productsdialog.h productsdialog.ui
+        accessory/comboboxdelegate.cpp accessory/comboboxdelegate.h
 
     )
 # Define target properties for Android with Qt 6 as:
